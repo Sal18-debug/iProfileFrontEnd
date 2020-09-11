@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {makeStyles, withStyles} from '@material-ui/core/styles';
 import {TextField, Button} from '@material-ui/core';
+import axios from 'axios';
 
 const InputField = withStyles({
     root: {
@@ -37,11 +38,61 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
+     
+
 const SignupStudent = () => {
     const classes = useStyles();
+
+    const [firstName, setFirstName] = React.useState();
+    const [lastName, setLastName] = React.useState();
+
+
+    const onChangeFirstName = (e) => {
+        setFirstName(e.target.firstName);
+    }
+    const onChangeLastName = (e) => {
+        setLastName(e.target.lastName);
+    }
+
+    const [email, setEmail] = React.useState();
+    const [password, setPassword] = React.useState();
+
+
+    const onChangeEmail = (e) => {
+        setEmail(e.target.email);
+    }
+    const onChangePassword = (e) => {
+        setPassword(e.target.password);
+    }
+    // const onChangeEmail = (e) => {
+    //     setEmail(e.target.email);
+    // }
+    // const onChangeEmail = (e) => {
+    //     setEmail(e.target.email);
+    // }
+    // const onChangeEmail = (e) => {
+    //     setEmail(e.target.email);
+    // }
+    // const onChangeEmail = (e) => {
+    //     setEmail(e.target.email);
+    // }
+    
+    const onSubmit = () => {
+            const body = {
+                firstName: firstName,
+                lastName: lastName,
+                password: password,
+                email: email
+            }
+            axios.post('http://localhost:5000/user/register', body).then(
+                res => {
+                    console.log(res);
+                }
+            )
+    }  
     return(
     <div className={classes.mainform}>
-        <form className={classes.form}>
+        <form className={classes.form} >
             <InputField 
             className={classes.input}
             fullWidth={true}
@@ -53,6 +104,7 @@ const SignupStudent = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
+            onChange={onChangeFirstName}
             />
             <InputField 
             className={classes.input}
@@ -65,6 +117,7 @@ const SignupStudent = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
+            onChange={onChangeLastName}
             />
             <InputField 
             className={classes.input}
@@ -77,6 +130,7 @@ const SignupStudent = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
+            onChange={onChangeEmail}
             />
             <InputField 
             className={classes.input}
@@ -89,6 +143,7 @@ const SignupStudent = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
+            onChange={onChangePassword}
             />
             <InputField 
             className={classes.input}
@@ -103,7 +158,7 @@ const SignupStudent = () => {
             inputProps={{ style:{color: 'black'}  }}
             />
             <div className={classes.button}>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={onSubmit}>
                     Submit
                 </Button>
             </div>

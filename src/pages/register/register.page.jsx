@@ -47,7 +47,7 @@ const Register = () => {
                         textColor="primary"
                         onChange={handleChange}
                         aria-label="disabled tabs example"
-                        disableRipple={true}
+                        // disableRipple={true}
                         centered
                         >
                             <Tab label="Student" />

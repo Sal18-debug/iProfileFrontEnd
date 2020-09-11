@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {makeStyles, withStyles} from '@material-ui/core/styles';
 import {TextField, Button} from '@material-ui/core';
+import axios from 'axios';
 
 const InputField = withStyles({
     root: {
@@ -37,8 +38,34 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
+// http://localhost:5000/user/login
 const Signin = () => {
     const classes = useStyles();
+
+    const [email, setEmail] = React.useState();
+    const [password, setPass] = React.useState();
+
+
+    const onChangeEmail = (e) => {
+        setEmail(e.target.email);
+    }
+    const onChangePass = (e) => {
+        setPass(e.target.password);
+    }
+
+    const onSubmit = () => {
+        const body = {
+            email: email,
+            password: password
+        }
+        axios.get('http://localhost:5000/user/login', body).then(
+            res => {
+                console.log(res);
+            }
+        )
+    }  
+
     return(
     <div className={classes.mainform}>
         <form className={classes.form}>
@@ -53,6 +80,7 @@ const Signin = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
+            onChange={onChangeEmail}
             />
             <InputField 
             className={classes.input}
@@ -65,9 +93,10 @@ const Signin = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
+            onChange={onChangePass}
             />
             <div className={classes.button}>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={onSubmit}>
                     Submit
                 </Button>
             </div>
