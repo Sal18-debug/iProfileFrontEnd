@@ -1,14 +1,18 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import Landing from '../../teamhack/src/pages/landing/landing.component';
-import Register from '../../teamhack/src/component/register/register.component.jsx';
+import Landing from './pages/landing/landing.page';
+import Register from './pages/register/register.page';
+import Header from '../src/component/header/header.component';
+import Bottom from '../src/component/bottom/bottom.component';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <Header/>
       <Route exact path='/' component={Landing} />
       <Route exact path='/register' component={Register}/>
+      <Bottom/>
     </div>
   );
 }

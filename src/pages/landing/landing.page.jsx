@@ -1,8 +1,8 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Header from '../../component/header/header.component';
-import Bottom from '../../component/bottom/bottom.component';
+// import Header from '../../component/header/header.component';
+// import Bottom from '../../component/bottom/bottom.component';
 import Image from './images/background.jpg';
 import Signin from '../../component/signin/signin.component';
 var styles = {
@@ -52,7 +52,7 @@ const Landing = () => {
     const classes = useStyles();
     return (
         <div>
-            <Header/>
+            
             <div className={classes.mainback}>
                 <div className={classes.mainimage} style={styles}>
                     <div className={classes.infor}>
@@ -68,7 +68,7 @@ const Landing = () => {
                     <Signin/>
                 </div> 
             </div>
-            <Bottom/>
+            
         </div>
     )
 };

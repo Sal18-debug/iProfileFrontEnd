@@ -35,13 +35,37 @@ const useStyles = makeStyles((theme) => ({
     newaccount: {
         marginTop: '10px'
     }
-}));
+  }));
 
-const Signin = () => {
+const SignupStudent = () => {
     const classes = useStyles();
     return(
     <div className={classes.mainform}>
         <form className={classes.form}>
+            <InputField 
+            className={classes.input}
+            fullWidth={true}
+            label='First name'
+            name='firstName'
+            required
+            autoComplete='First name'
+            variant='outlined'
+            margin='dense'
+            size='medium'
+            inputProps={{ style:{color: 'black'}  }}
+            />
+            <InputField 
+            className={classes.input}
+            fullWidth={true}
+            label='Last name'
+            name='lastName'
+            required
+            autoComplete='Last name'
+            variant='outlined'
+            margin='dense'
+            size='medium'
+            inputProps={{ style:{color: 'black'}  }}
+            />
             <InputField 
             className={classes.input}
             fullWidth={true}
@@ -66,6 +90,18 @@ const Signin = () => {
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
             />
+            <InputField 
+            className={classes.input}
+            fullWidth={true}
+            label='Confirm password'
+            name='confirmpassword'
+            required
+            autoComplete='Confirm password'
+            variant='outlined'
+            margin='dense'
+            size='medium'
+            inputProps={{ style:{color: 'black'}  }}
+            />
             <div className={classes.button}>
                 <Button variant="contained" color="primary">
                     Submit
@@ -73,11 +109,11 @@ const Signin = () => {
             </div>
         </form>
         <div className={classes.newaccount}>
-            <Link to='/register' variant="body2" >
-                {"Don't have an account? Register"}
+            <Link to='/' variant="body2" >
+                {"Have an account? Login"}
             </Link>
         </div>
     </div>
     )
 };
-export default Signin;
+export default SignupStudent;
