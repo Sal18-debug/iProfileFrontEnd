@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '10% 5px 0px 5px',
         [theme.breakpoints.down('sm')]: {
             margin: '10% 5px 0px 5px'
-          }
+        }
     },
     infor: {
         display: 'flex',
