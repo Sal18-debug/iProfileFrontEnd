@@ -49,7 +49,6 @@ const Onboarding2 = (props) => {
     const [endDate, setEndDate] = useState("")
     const [description, setDescription] = useState("")
 
-    //NOTE: REMEMBER TO REPLACE EMAIL!!!!!!!!!!!!!
     const handleOnSubmit = (e) => {
         e.preventDefault()
 

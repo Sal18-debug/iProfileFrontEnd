@@ -3,6 +3,7 @@ import React from 'react'
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import "./onboarding1.css"
 
 const InputField = withStyles({
     root: {
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     },
     newaccount: {
         marginTop: '10px'
-    }
+    },
 }));
 
 const Onboarding1 = (props) => {
@@ -83,8 +84,8 @@ const Onboarding1 = (props) => {
             <form>
                 <Grid sm={12} md={6}>˛
                 <InputField
-                        className={classes.input}
-                        fullWidth={true}
+                        className={firstName}
+                        // fullWidth={true}
                         label='First Name'
                         name='firstName'
                         required
@@ -99,7 +100,7 @@ const Onboarding1 = (props) => {
                 <Grid sm={12} md={6}>
                     <InputField
                         className={classes.input}
-                        fullWidth={true}
+                        // fullWidth={true}
                         label='Last Name'
                         name='lastName'
                         required
@@ -114,7 +115,7 @@ const Onboarding1 = (props) => {
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
-                        fullWidth={true}
+                        // fullWidth={true}
                         label='Date of birth'
                         name='dateOfBirth'
                         required
@@ -129,7 +130,7 @@ const Onboarding1 = (props) => {
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
-                        fullWidth={true}
+                        // fullWidth={true}
                         label='MALE FEMALE PLACEHOLDER'
                         name='email'
                         // required
@@ -144,7 +145,7 @@ const Onboarding1 = (props) => {
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
-                        fullWidth={true}
+                        // fullWidth={true}
                         label='University'
                         name='university'
                         required
@@ -159,7 +160,7 @@ const Onboarding1 = (props) => {
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
-                        fullWidth={true}
+                        // fullWidth={true}
                         label='Graduation date'
                         name='graduationDate'
                         required
@@ -174,7 +175,7 @@ const Onboarding1 = (props) => {
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
-                        fullWidth={true}
+                        // fullWidth={true}
                         label='Degree'
                         name='degree'
                         required
@@ -189,7 +190,7 @@ const Onboarding1 = (props) => {
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
-                        fullWidth={true}
+                        // fullWidth={true}
                         label='Major'
                         name='major'
                         required
@@ -207,7 +208,7 @@ const Onboarding1 = (props) => {
                     <Checkbox
                         checked={profileAvaliableToRecruiter}
                     />}
-                    label="Primary"
+                    label=" I would like to make my profile available to recruiters"
                 ></FormControlLabel>
                 
                 <FormControlLabel
