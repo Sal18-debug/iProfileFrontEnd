@@ -2,6 +2,7 @@ import { Grid, TextField, Button, Checkbox, FormControlLabel } from '@material-u
 import React from 'react'
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const InputField = withStyles({
     root: {
@@ -39,8 +40,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Onboarding1 = (props) => {
     const classes = useStyles();
+    const email = useSelector(state=>state)
 
-    const [email, setEmail] = React.useState("")
+    console.log('em', email)
+
     const [firstName, setFirstName] = React.useState("")
     const [lastName, setLastName] = React.useState("")
     const [dateOfBirth, setDateOfBirth] = React.useState("")
@@ -131,13 +134,13 @@ const Onboarding1 = (props) => {
                         fullWidth={true}
                         label='MALE FEMALE PLACEHOLDER'
                         name='email'
-                        required
-                        autoComplete='email'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setEmail(e.target.value)}
+                        // required
+                        // autoComplete='email'
+                        // variant='outlined'
+                        // margin='dense'
+                        // size='medium'
+                        // inputProps={{ style: { color: 'black' } }}
+                        // onChange={e => setEmail(e.target.value)}
                     />
                 </Grid>
                 <Grid sm={12} md={6}>˛

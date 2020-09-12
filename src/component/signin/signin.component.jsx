@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import {makeStyles, withStyles} from '@material-ui/core/styles';
 import {TextField, Button} from '@material-ui/core';
 import axios from 'axios';
+import { storeEmail } from '../../redux/redux'
+import { useDispatch } from 'react-redux';
 
 const InputField = withStyles({
     root: {
@@ -42,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 // http://localhost:5000/user/login
 const Signin = () => {
     const classes = useStyles();
+    const dispatch = useDispatch()
 
     const [email, setEmail] = React.useState();
     const [password, setPass] = React.useState();
@@ -52,6 +55,7 @@ const Signin = () => {
             password: password
         }}).then(
             res => {
+                dispatch(storeEmail(email))
                 console.log(res);
             }
         )
