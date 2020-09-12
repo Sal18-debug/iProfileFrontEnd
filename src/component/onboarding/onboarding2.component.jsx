@@ -54,7 +54,7 @@ const Onboarding2 = (props) => {
         e.preventDefault()
 
         const body = {
-            projectTitle: projectTitle,
+            title: projectTitle,
             category: category,
             contributors: contributors,
             startDate: startDate,

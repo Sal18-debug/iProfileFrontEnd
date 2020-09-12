@@ -9,6 +9,8 @@ import Onboarding1 from './component/onboarding/onboarding1.component';
 import Onboarding2 from './component/onboarding/onboarding2.component';
 import store from './redux/redux'
 import { Provider } from 'react-redux'
+import Portfolio from './component/portfolio/portfolio.component';
+import Project from './component/project/project';
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route exact path='/register' component={Register} />
         <Route exact path='/onboarding1' component={Onboarding1} />
         <Route exact path='/onboarding2' component={Onboarding2} />
+        <Route exact path='/portfolio' component={Portfolio} />
+        <Route exact path="/project" component={Project}/>
         <Bottom />
       </div>
     </Provider>

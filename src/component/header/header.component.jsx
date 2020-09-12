@@ -41,14 +41,25 @@ export default function Header() {
             </Link>
             <Link to='/onboarding1'>
                 <Button variant="contained" color="primary">
-                    onboarding: FOR TESTING PURPOSES
+                    onboarding1
                 </Button>
             </Link>
             <Link to='/onboarding2'>
                 <Button variant="contained" color="primary">
-                    onboarding2: FOR TESTING PURPOSES
+                    onboarding2
                 </Button>
             </Link>
+            <Link to='/portfolio'>
+                <Button variant="contained" color="primary">
+                    Portfolio
+                </Button>
+            </Link>
+            <Link to='/project'>
+                <Button variant="contained" color="primary">
+                    Project
+                </Button>
+            </Link>
+
 
         </Toolbar>
       </AppBar>
