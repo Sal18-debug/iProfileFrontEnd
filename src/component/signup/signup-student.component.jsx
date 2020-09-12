@@ -23,7 +23,7 @@ const InputField = withStyles({
                 borderColor: 'tan'
             }
         }
-    },
+    }
 })(TextField);
 
 const useStyles = makeStyles((theme) => ({ 
@@ -38,8 +38,6 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-     
-
 const SignupStudent = () => {
     const classes = useStyles();
 
@@ -48,9 +46,8 @@ const SignupStudent = () => {
     const [email, setEmail] = React.useState("a");
     const [password, setPassword] = React.useState("");
 
-
     const onSubmit = () => {
-            console.log('onsub clicked')
+            console.log('onsub clicked');
             const body = {
                 firstName: firstName,
                 lastName: lastName,

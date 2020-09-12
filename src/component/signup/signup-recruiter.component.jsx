@@ -40,20 +40,20 @@ const useStyles = makeStyles((theme) => ({
 
 const SignupRecruiter = () => {
     const classes = useStyles();
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [company, setCompany] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [company, setCompany] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const onSubmit = (e) => {
-        e.preventDefault()
-        console.log('onsubmit hit')
+        e.preventDefault();
+        console.log('onsubmit hit');
         const body = {
             firstName: firstName,
             lastName: lastName,
             password: password,
-            company, company,
+            company: company,
             email: email,
             student: false
         }
@@ -150,11 +150,11 @@ const SignupRecruiter = () => {
                 <div className={classes.button}>
                     <Button variant="contained" color="primary" onClick={onSubmit}>
                         Submit
-                </Button>
+                    </Button>
                 </div>
             </form>
             <div className={classes.newaccount}>
-                <Link to='/' variant="body2" >
+                <Link to='/' variant="body2">
                     {"Have an account? Login"}
                 </Link>
             </div>
