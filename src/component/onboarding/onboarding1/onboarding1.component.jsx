@@ -4,6 +4,8 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import MainInfo from './maininfo.component';
+
+
 const InputField = withStyles({
     root: {
         '& label.Mui-focused': {
@@ -28,16 +30,32 @@ const InputField = withStyles({
 
 const useStyles = makeStyles((theme) => ({
     parent: {
-        display: 'column'
+        width: '100%',
+        height: '80vh'
     },
     mainform: {
-        marginTop: '10px'
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: '4rem',
+
     },
     nameform: {
-        marginTop: '10px'
+        paddingBottom: '30px',
+        fontSize: '24px'
     },
     info: {
         
+    },
+    extra: {
+
+    },
+    checkbox: {
+
+    },
+    button: {
+
     }
 }));
 
@@ -92,7 +110,33 @@ const Onboarding1 = (props) => {
                 </div>
                 
                 <div className={classes.extra}>
-                
+                    <div className={classes.checkbox}>
+                        <div>
+                        <FormControlLabel
+                        control={
+                        <Checkbox
+                        checked={profileAvaliableToRecruiter}
+                        />}
+                        label=" I would like to make my profile available to recruiters"
+                        />
+                        </div>
+                        <div>
+                        <FormControlLabel
+                        control={
+                        <Checkbox
+                            checked={recieveMessageFromRecruiters}
+                        />}
+                        label="I would like to receive messages from recruiters"
+                        />
+                        </div>
+                    </div>
+                    
+                    <div className={classes.button}>
+                        <Button variant="contained" color="primary" onClick={handleOnSubmit}>
+                            Next
+                        </Button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -115,154 +159,140 @@ export default Onboarding1;
 
 
 
-<div>
+// <div>
 
-        <Grid>
-            <form>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input, classes.firstName}
-                        // fullWidth={true}
-                        label='First Name'
-                        name='firstName'
-                        required
-                        autoComplete='Harry'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setFirstName(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>
-                    <InputField
-                        className={classes.input}
-                        // fullWidth={true}
-                        label='Last Name'
-                        name='lastName'
-                        required
-                        autoComplete='Potter'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setLastName(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        // fullWidth={true}
-                        label='Date of birth'
-                        name='dateOfBirth'
-                        required
-                        autoComplete='Date of Birth'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setDateOfBirth(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        // fullWidth={true}
-                        label='MALE FEMALE PLACEHOLDER'
-                        name='email'
-                        // required
-                        // autoComplete='email'
-                        // variant='outlined'
-                        // margin='dense'
-                        // size='medium'
-                        // inputProps={{ style: { color: 'black' } }}
-                        // onChange={e => setEmail(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        // fullWidth={true}
-                        label='University'
-                        name='university'
-                        required
-                        autoComplete='university'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setUniversity(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        // fullWidth={true}
-                        label='Graduation date'
-                        name='graduationDate'
-                        required
-                        autoComplete='Graduation date'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setGraduation(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        // fullWidth={true}
-                        label='Degree'
-                        name='degree'
-                        required
-                        autoComplete='Degree'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setDegree(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        // fullWidth={true}
-                        label='Major'
-                        name='major'
-                        required
-                        autoComplete='Major'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setMajor(e.target.value)}
-                    />
-                </Grid>
+//         <Grid>
+//             <form>
+//                 <Grid sm={12} md={6}>˛
+//                 <InputField
+//                         className={classes.input, classes.firstName}
+//                         // fullWidth={true}
+//                         label='First Name'
+//                         name='firstName'
+//                         required
+//                         autoComplete='Harry'
+//                         variant='outlined'
+//                         margin='dense'
+//                         size='medium'
+//                         inputProps={{ style: { color: 'black' } }}
+//                         onChange={e => setFirstName(e.target.value)}
+//                     />
+//                 </Grid>
+//                 <Grid sm={12} md={6}>
+//                     <InputField
+//                         className={classes.input}
+//                         // fullWidth={true}
+//                         label='Last Name'
+//                         name='lastName'
+//                         required
+//                         autoComplete='Potter'
+//                         variant='outlined'
+//                         margin='dense'
+//                         size='medium'
+//                         inputProps={{ style: { color: 'black' } }}
+//                         onChange={e => setLastName(e.target.value)}
+//                     />
+//                 </Grid>
+//                 <Grid sm={12} md={6}>˛
+//                 <InputField
+//                         className={classes.input}
+//                         // fullWidth={true}
+//                         label='Date of birth'
+//                         name='dateOfBirth'
+//                         required
+//                         autoComplete='Date of Birth'
+//                         variant='outlined'
+//                         margin='dense'
+//                         size='medium'
+//                         inputProps={{ style: { color: 'black' } }}
+//                         onChange={e => setDateOfBirth(e.target.value)}
+//                     />
+//                 </Grid>
+//                 <Grid sm={12} md={6}>˛
+//                 <InputField
+//                         className={classes.input}
+//                         // fullWidth={true}
+//                         label='MALE FEMALE PLACEHOLDER'
+//                         name='email'
+//                         // required
+//                         // autoComplete='email'
+//                         // variant='outlined'
+//                         // margin='dense'
+//                         // size='medium'
+//                         // inputProps={{ style: { color: 'black' } }}
+//                         // onChange={e => setEmail(e.target.value)}
+//                     />
+//                 </Grid>
+//                 <Grid sm={12} md={6}>˛
+//                 <InputField
+//                         className={classes.input}
+//                         // fullWidth={true}
+//                         label='University'
+//                         name='university'
+//                         required
+//                         autoComplete='university'
+//                         variant='outlined'
+//                         margin='dense'
+//                         size='medium'
+//                         inputProps={{ style: { color: 'black' } }}
+//                         onChange={e => setUniversity(e.target.value)}
+//                     />
+//                 </Grid>
+//                 <Grid sm={12} md={6}>˛
+//                 <InputField
+//                         className={classes.input}
+//                         // fullWidth={true}
+//                         label='Graduation date'
+//                         name='graduationDate'
+//                         required
+//                         autoComplete='Graduation date'
+//                         variant='outlined'
+//                         margin='dense'
+//                         size='medium'
+//                         inputProps={{ style: { color: 'black' } }}
+//                         onChange={e => setGraduation(e.target.value)}
+//                     />
+//                 </Grid>
+//                 <Grid sm={12} md={6}>˛
+//                 <InputField
+//                         className={classes.input}
+//                         // fullWidth={true}
+//                         label='Degree'
+//                         name='degree'
+//                         required
+//                         autoComplete='Degree'
+//                         variant='outlined'
+//                         margin='dense'
+//                         size='medium'
+//                         inputProps={{ style: { color: 'black' } }}
+//                         onChange={e => setDegree(e.target.value)}
+//                     />
+//                 </Grid>
+//                 <Grid sm={12} md={6}>˛
+//                 <InputField
+//                         className={classes.input}
+//                         // fullWidth={true}
+//                         label='Major'
+//                         name='major'
+//                         required
+//                         autoComplete='Major'
+//                         variant='outlined'
+//                         margin='dense'
+//                         size='medium'
+//                         inputProps={{ style: { color: 'black' } }}
+//                         onChange={e => setMajor(e.target.value)}
+//                     />
+//                 </Grid>
 
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        checked={profileAvaliableToRecruiter}
-                    />}
-                    label=" I would like to make my profile available to recruiters"
-                ></FormControlLabel>
                 
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        checked={recieveMessageFromRecruiters}
-                    />}
-                    label="Primary"
-                ></FormControlLabel>
                 
 
-                <div className={classes.button}>
-                    <Button variant="contained" color="primary" onClick={handleOnSubmit}>
-                        Next
-                    </Button>
-                </div>
-            </form>
-        </Grid>
+//                 <div className={classes.button}>
+//                     <Button variant="contained" color="primary" onClick={handleOnSubmit}>
+//                         Next
+//                     </Button>
+//                 </div>
+//             </form>
+//         </Grid>
 
-    </div>
+//     </div>

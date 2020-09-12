@@ -2,9 +2,15 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {makeStyles, withStyles} from '@material-ui/core/styles';
 import {TextField, Button} from '@material-ui/core';
-import axios from 'axios';
-import { storeEmail, storeUserProfile } from '../../redux/redux';
+// import axios from 'axios';
+// import { storeEmail, storeUserProfile } from  '../../../redux/redux'; 
 import { useDispatch } from 'react-redux';
+// import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+// import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const InputField = withStyles({
     root: {
@@ -30,13 +36,19 @@ const InputField = withStyles({
 
 const useStyles = makeStyles((theme) => ({ 
     form: {
-        display: 'column'
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        paddingBottom: '20px',
+        width: '80vh'
     },
-    button: {
-        marginTop: '10px'
+    left: {
+        width: '50%',
+        marginRight: '20px'
     },
-    newaccount: {
-        marginTop: '10px'
+    right: {
+        width: '50%',
+        marginLeft: '20px'
     }
 }));
 
@@ -47,7 +59,7 @@ const MainInfo = () => {
     const dispatch = useDispatch();
     
     /* this is used for Gender selection*/
-    const [gender, setGender] = React.useState("Male");
+    const [gender, setGender] = React.useState(1); // 1-> Male 2-> Female
     const [open, setOpen] = React.useState(false);
     const handleChange = (event) => {
         setGender(event.target.value);
@@ -73,7 +85,7 @@ const MainInfo = () => {
                     margin='dense'
                     size='medium'
                     inputProps={{ style:{color: 'black'}  }}
-                    onChange={e=>setEmail(e.target.value)}
+                    // onChange={e=>setEmail(e.target.value)}
                     />
                     <InputField 
                     fullWidth={true}
@@ -85,7 +97,7 @@ const MainInfo = () => {
                     margin='dense'
                     size='medium'
                     inputProps={{ style:{color: 'black'}  }}
-                    onChange={e=>setPass(e.target.value)}
+                    // onChange={e=>setPass(e.target.value)}
                     />
                     <InputField 
                     fullWidth={true}
@@ -97,7 +109,7 @@ const MainInfo = () => {
                     margin='dense'
                     size='medium'
                     inputProps={{ style:{color: 'black'}  }}
-                    onChange={e=>setPass(e.target.value)}
+                    // onChange={e=>setPass(e.target.value)}
                     />
                     <InputField 
                     fullWidth={true}
@@ -109,7 +121,7 @@ const MainInfo = () => {
                     margin='dense'
                     size='medium'
                     inputProps={{ style:{color: 'black'}  }}
-                    onChange={e=>setPass(e.target.value)}
+                    // onChange={e=>setPass(e.target.value)}
                     />
                 </div>
                 
@@ -124,7 +136,7 @@ const MainInfo = () => {
                     margin='dense'
                     size='medium'
                     inputProps={{ style:{color: 'black'}  }}
-                    onChange={e=>setEmail(e.target.value)}
+                    // onChange={e=>setEmail(e.target.value)}
                     />
                     <div className={classes.gender}>
                         <FormControl className={classes.formControl}>
@@ -154,7 +166,7 @@ const MainInfo = () => {
                     margin='dense'
                     size='medium'
                     inputProps={{ style:{color: 'black'}  }}
-                    onChange={e=>setPass(e.target.value)}
+                    // onChange={e=>setPass(e.target.value)}
                     />
                     <InputField 
                     fullWidth={true}
@@ -166,7 +178,7 @@ const MainInfo = () => {
                     margin='dense'
                     size='medium'
                     inputProps={{ style:{color: 'black'}  }}
-                    onChange={e=>setPass(e.target.value)}
+                    // onChange={e=>setPass(e.target.value)}
                     />
                 </div>
 
