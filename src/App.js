@@ -5,6 +5,7 @@ import Register from './pages/register/register.page';
 import Header from '../src/component/header/header.component';
 import Bottom from '../src/component/bottom/bottom.component';
 import './App.css';
+import Onboarding1 from './component/onboarding/onboarding1.component';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header/>
       <Route exact path='/' component={Landing} />
       <Route exact path='/register' component={Register}/>
+      <Route exact path='/onboarding1' component={Onboarding1}/>
       <Bottom/>
     </div>
   );
