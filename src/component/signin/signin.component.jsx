@@ -70,8 +70,6 @@ const Signin = () => {
                         console.log(res)
                     }
                 )
-
-
             }
         )
     }  

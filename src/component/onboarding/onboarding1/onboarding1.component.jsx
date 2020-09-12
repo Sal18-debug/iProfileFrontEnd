@@ -3,8 +3,7 @@ import React from 'react'
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import "./onboarding1.css"
-
+import MainInfo from './maininfo.component';
 const InputField = withStyles({
     root: {
         '& label.Mui-focused': {
@@ -28,15 +27,18 @@ const InputField = withStyles({
 })(TextField);
 
 const useStyles = makeStyles((theme) => ({
-    form: {
+    parent: {
         display: 'column'
     },
-    button: {
+    mainform: {
         marginTop: '10px'
     },
-    newaccount: {
+    nameform: {
         marginTop: '10px'
     },
+    info: {
+        
+    }
 }));
 
 const Onboarding1 = (props) => {
@@ -78,7 +80,42 @@ const Onboarding1 = (props) => {
         )
     }
 
-    return <div>
+    return (
+        <div className={classes.parent}>
+            <div className={classes.mainform}>
+                <div className={classes.nameform}>
+                    Account setup
+                </div>
+
+                <div className={classes.info}>
+                    <MainInfo/>
+                </div>
+                
+                <div className={classes.extra}>
+                
+                </div>
+            </div>
+        </div>
+    ) 
+}
+
+export default Onboarding1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
 
         <Grid>
             <form>
@@ -223,12 +260,9 @@ const Onboarding1 = (props) => {
                 <div className={classes.button}>
                     <Button variant="contained" color="primary" onClick={handleOnSubmit}>
                         Next
-                </Button>
+                    </Button>
                 </div>
             </form>
         </Grid>
 
     </div>
-}
-
-export default Onboarding1
