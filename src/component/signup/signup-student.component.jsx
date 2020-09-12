@@ -49,31 +49,15 @@ const SignupStudent = () => {
     const [password, setPassword] = React.useState("");
 
 
-    const onChangeFirstName = (e) => {
-        setFirstName(e.target.firstName);
-    }
-    const onChangeLastName = (e) => {
-        setLastName(e.target.lastName);
-    }
-    // const onChangeEmail = (e) => {
-    //     console.log('z',e.target.value)
-    //     setEmail(e.target.email);
-    //     console.log('zz', email)
-    // }
-    const onChangePassword = (e) => {
-        setPassword(e.target.password);
-    }
- 
-    
     const onSubmit = () => {
             console.log('onsub clicked')
             const body = {
                 firstName: firstName,
                 lastName: lastName,
                 password: password,
-                email: email
+                email: email,
+                student: true
             }
-            console.log('z', body)
             axios.post('http://localhost:5000/user/register', body).then(
                 res => {
                     console.log(res);

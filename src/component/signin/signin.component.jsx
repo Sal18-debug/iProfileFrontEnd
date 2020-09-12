@@ -46,20 +46,11 @@ const Signin = () => {
     const [email, setEmail] = React.useState();
     const [password, setPass] = React.useState();
 
-
-    const onChangeEmail = (e) => {
-        setEmail(e.target.email);
-    }
-    const onChangePass = (e) => {
-        setPass(e.target.password);
-    }
-
     const onSubmit = () => {
-        const body = {
-            email: email,
+        axios.get('http://localhost:5000/user/login', {params: {
+            email: email, 
             password: password
-        }
-        axios.get('http://localhost:5000/user/login', body).then(
+        }}).then(
             res => {
                 console.log(res);
             }
@@ -80,7 +71,7 @@ const Signin = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
-            onChange={onChangeEmail}
+            onChange={e=>setEmail(e.target.value)}
             />
             <InputField 
             className={classes.input}
@@ -93,7 +84,7 @@ const Signin = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
-            onChange={onChangePass}
+            onChange={e=>setPass(e.target.value)}
             />
             <div className={classes.button}>
                 <Button variant="contained" color="primary" onClick={onSubmit}>
