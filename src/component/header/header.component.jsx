@@ -44,6 +44,11 @@ export default function Header() {
                     onboarding: FOR TESTING PURPOSES
                 </Button>
             </Link>
+            <Link to='/onboarding2'>
+                <Button variant="contained" color="primary">
+                    onboarding2: FOR TESTING PURPOSES
+                </Button>
+            </Link>
 
         </Toolbar>
       </AppBar>

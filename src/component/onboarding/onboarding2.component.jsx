@@ -1,7 +1,8 @@
 import { Grid, TextField, Button, Checkbox, FormControlLabel } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const InputField = withStyles({
     root: {
@@ -39,37 +40,29 @@ const useStyles = makeStyles((theme) => ({
 
 const Onboarding2 = (props) => {
     const classes = useStyles();
-
-    const [email, setEmail] = React.useState("")
-    const [firstName, setFirstName] = React.useState("")
-    const [lastName, setLastName] = React.useState("")
-    const [dateOfBirth, setDateOfBirth] = React.useState("")
-    const [university, setUniversity] = React.useState("")
-    const [graduation, setGraduation] = React.useState("")
-    const [imageUrl, setImageUrl] = React.useState("")
-    const [degree, setDegree] = React.useState("")
-    const [major, setMajor] = React.useState("")
-    const [profileAvaliableToRecruiter, setProfileAvaliableToRecruiter] = React.useState(false)
-    const [recieveMessageFromRecruiters, setRecieveMessageFromRecruiters] = React.useState(false)
+    const email = useSelector(state => state.email)
+    
+    const [projectTitle, setProjectTitle] = useState("")
+    const [category, setCategory] = useState("")
+    const [contributors, setContributors] = useState("")
+    const [startDate, setStartDate] = useState("")
+    const [endDate, setEndDate] = useState("")
+    const [description, setDescription] = useState("")
 
     //NOTE: REMEMBER TO REPLACE EMAIL!!!!!!!!!!!!!
     const handleOnSubmit = (e) => {
         e.preventDefault()
 
         const body = {
-            lastName: lastName, 
-            firstName: firstName, 
-            dateOfBirth: dateOfBirth, 
-            university: university,
-            graduation: graduation, 
-            // imageUrl: imageUrl, 
-            degree: degree, 
-            major: major, 
-            profileAvaliableToRecruiter: profileAvaliableToRecruiter,
-            recieveMessageFromRecruiters: recieveMessageFromRecruiters
-    }
+            projectTitle: projectTitle,
+            category: category,
+            contributors: contributors,
+            startDate: startDate,
+            endDate: endDate,
+            description: description
+        }
 
-        axios.post(`http://localhost:5000/user/email/a/profile`, body).then(
+        axios.post(`http://localhost:5000/user/email/${email}/project`, body).then(
             (res) => {
                 console.log(res)
             }
@@ -78,149 +71,104 @@ const Onboarding2 = (props) => {
 
     return <div>
 
+        <h1>Add My Projects</h1>
+
         <Grid>
             <form>
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
                         fullWidth={true}
-                        label='First Name'
-                        name='firstName'
+                        label='Project Title'
+                        name='projectTitle'
                         required
-                        autoComplete='Harry'
+                        autoComplete='Project Title'
                         variant='outlined'
                         margin='dense'
                         size='medium'
                         inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setFirstName(e.target.value)}
+                        onChange={e => setProjectTitle(e.target.value)}
                     />
                 </Grid>
                 <Grid sm={12} md={6}>
                     <InputField
                         className={classes.input}
                         fullWidth={true}
-                        label='Last Name'
-                        name='lastName'
+                        label='Category'
+                        name='category'
                         required
-                        autoComplete='Potter'
+                        autoComplete='Category'
                         variant='outlined'
                         margin='dense'
                         size='medium'
                         inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setLastName(e.target.value)}
+                        onChange={e => setCategory(e.target.value)}
                     />
                 </Grid>
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
                         fullWidth={true}
-                        label='Date of birth'
-                        name='dateOfBirth'
+                        label='Contributors'
+                        name='contributors'
                         required
-                        autoComplete='Date of Birth'
+                        autoComplete='contributors'
                         variant='outlined'
                         margin='dense'
                         size='medium'
                         inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setDateOfBirth(e.target.value)}
+                        onChange={e => setContributors(e.target.value)}
                     />
                 </Grid>
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
                         fullWidth={true}
-                        label='MALE FEMALE PLACEHOLDER'
-                        name='email'
+                        label='Start Date'
+                        name='startDate'
                         required
-                        autoComplete='email'
+                        autoComplete='Start Date'
                         variant='outlined'
                         margin='dense'
                         size='medium'
                         inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={e => setStartDate(e.target.value)}
                     />
                 </Grid>
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
                         fullWidth={true}
-                        label='University'
-                        name='university'
+                        label='End Date'
+                        name='endDate'
                         required
-                        autoComplete='university'
+                        autoComplete='End Date'
                         variant='outlined'
                         margin='dense'
                         size='medium'
                         inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setUniversity(e.target.value)}
+                        onChange={e => setEndDate(e.target.value)}
                     />
                 </Grid>
                 <Grid sm={12} md={6}>˛
                 <InputField
                         className={classes.input}
                         fullWidth={true}
-                        label='Graduation date'
-                        name='graduationDate'
+                        label='Description'
+                        name='description'
                         required
-                        autoComplete='Graduation date'
+                        autoComplete='Description'
                         variant='outlined'
                         margin='dense'
                         size='medium'
                         inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setGraduation(e.target.value)}
+                        onChange={e => setDescription(e.target.value)}
                     />
                 </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        fullWidth={true}
-                        label='Degree'
-                        name='degree'
-                        required
-                        autoComplete='Degree'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setDegree(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        fullWidth={true}
-                        label='Major'
-                        name='major'
-                        required
-                        autoComplete='Major'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setMajor(e.target.value)}
-                    />
-                </Grid>
-
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        checked={profileAvaliableToRecruiter}
-                    />}
-                    label="Primary"
-                ></FormControlLabel>
-                
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        checked={recieveMessageFromRecruiters}
-                    />}
-                    label="Primary"
-                ></FormControlLabel>
-                
 
                 <div className={classes.button}>
                     <Button variant="contained" color="primary" onClick={handleOnSubmit}>
-                        Next
+                        Finish
                 </Button>
                 </div>
             </form>
