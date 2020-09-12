@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {makeStyles, withStyles} from '@material-ui/core/styles';
 import {TextField, Button} from '@material-ui/core';
 import axios from 'axios';
-import { storeEmail } from '../../redux/redux';
+import { storeEmail, storeUserProfile } from '../../redux/redux';
 import { useDispatch } from 'react-redux';
 
 const InputField = withStyles({
@@ -54,8 +54,24 @@ const Signin = () => {
             email: email, 
             password: password
         }}).then(
-            res => {
+            _ => {
                 dispatch(storeEmail(email));
+
+                axios.get(`http://localhost:5000/user/email/${email}/profile`)
+                .then(
+                    res => {
+                        // if user's profile is set up
+                        if(res.data.success){
+                            dispatch(storeUserProfile(res.data.profile))
+                        }else{ // user's profile isn't set up
+                            console.log('user profile is not set up')
+                        }
+
+                        console.log(res)
+                    }
+                )
+
+
             }
         )
     }  

@@ -40,8 +40,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Onboarding2 = (props) => {
     const classes = useStyles();
-    const email = useSelector(state => state.email)
-    
+    const {email, firstName, lastName, dateOfBirth, univesity, degree, major} = useSelector(state=>state)
+    console.log(email, firstName, lastName,dateOfBirth, univesity, degree,major )
+
     const [projectTitle, setProjectTitle] = useState("")
     const [category, setCategory] = useState("")
     const [contributors, setContributors] = useState("")

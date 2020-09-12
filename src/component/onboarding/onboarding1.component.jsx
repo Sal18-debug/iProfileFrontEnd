@@ -84,7 +84,7 @@ const Onboarding1 = (props) => {
             <form>
                 <Grid sm={12} md={6}>˛
                 <InputField
-                        className={firstName}
+                        className={classes.input, classes.firstName}
                         // fullWidth={true}
                         label='First Name'
                         name='firstName'
