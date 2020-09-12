@@ -43,8 +43,10 @@ const useStyles = makeStyles((theme) => ({
 const SignupStudent = () => {
     const classes = useStyles();
 
-    const [firstName, setFirstName] = React.useState();
-    const [lastName, setLastName] = React.useState();
+    const [firstName, setFirstName] = React.useState("");
+    const [lastName, setLastName] = React.useState("");
+    const [email, setEmail] = React.useState("a");
+    const [password, setPassword] = React.useState("");
 
 
     const onChangeFirstName = (e) => {
@@ -53,37 +55,25 @@ const SignupStudent = () => {
     const onChangeLastName = (e) => {
         setLastName(e.target.lastName);
     }
-
-    const [email, setEmail] = React.useState();
-    const [password, setPassword] = React.useState();
-
-
-    const onChangeEmail = (e) => {
-        setEmail(e.target.email);
-    }
+    // const onChangeEmail = (e) => {
+    //     console.log('z',e.target.value)
+    //     setEmail(e.target.email);
+    //     console.log('zz', email)
+    // }
     const onChangePassword = (e) => {
         setPassword(e.target.password);
     }
-    // const onChangeEmail = (e) => {
-    //     setEmail(e.target.email);
-    // }
-    // const onChangeEmail = (e) => {
-    //     setEmail(e.target.email);
-    // }
-    // const onChangeEmail = (e) => {
-    //     setEmail(e.target.email);
-    // }
-    // const onChangeEmail = (e) => {
-    //     setEmail(e.target.email);
-    // }
+ 
     
     const onSubmit = () => {
+            console.log('onsub clicked')
             const body = {
                 firstName: firstName,
                 lastName: lastName,
                 password: password,
                 email: email
             }
+            console.log('z', body)
             axios.post('http://localhost:5000/user/register', body).then(
                 res => {
                     console.log(res);
@@ -104,7 +94,8 @@ const SignupStudent = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
-            onChange={onChangeFirstName}
+            onChange={e=>setFirstName(e.target.value)}
+            value={firstName}
             />
             <InputField 
             className={classes.input}
@@ -117,7 +108,8 @@ const SignupStudent = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
-            onChange={onChangeLastName}
+            onChange={e=>setLastName(e.target.value)}
+            value={lastName}
             />
             <InputField 
             className={classes.input}
@@ -130,7 +122,8 @@ const SignupStudent = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
-            onChange={onChangeEmail}
+            onChange={e=>{setEmail(e.target.value); console.log(email)}}
+            value={email}
             />
             <InputField 
             className={classes.input}
@@ -143,7 +136,8 @@ const SignupStudent = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
-            onChange={onChangePassword}
+            onChange={e=>setPassword(e.target.value)}
+            value={password}
             />
             <InputField 
             className={classes.input}
@@ -156,7 +150,7 @@ const SignupStudent = () => {
             margin='dense'
             size='medium'
             inputProps={{ style:{color: 'black'}  }}
-            />
+            value={password}/>
             <div className={classes.button}>
                 <Button variant="contained" color="primary" onClick={onSubmit}>
                     Submit
