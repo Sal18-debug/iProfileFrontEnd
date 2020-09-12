@@ -27,14 +27,58 @@ const InputField = withStyles({
 })(TextField);
 
 const useStyles = makeStyles((theme) => ({
+    parent: {
+        width: '100%',
+        height: '80vh'
+    },
     form: {
-        display: 'column'
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: '4rem',
+        marginBottom: '30px'
     },
-    button: {
-        marginTop: '10px'
+    name: {
+        paddingBottom: '30px',
+        fontSize: '24px'
     },
-    newaccount: {
-        marginTop: '10px'
+    box: {
+
+    },
+    info: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    left: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%'
+    },
+    right: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: '40px'
+    },
+    day: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: '90%'
+    },
+    category: {
+        // width: '60%'
+    },
+    text: {
+
+    },
+    extra: {
+
     }
 }));
 
@@ -69,112 +113,116 @@ const Onboarding2 = (props) => {
         )
     }
 
-    return <div>
-
-        <h1>Add My Projects</h1>
-
-        <Grid>
-            <form>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        fullWidth={true}
-                        label='Project Title'
-                        name='projectTitle'
-                        required
-                        autoComplete='Project Title'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setProjectTitle(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>
+    return (
+        <div className={classes.parent}>
+            <form className={classes.form}>
+                <div className={classes.name}>
+                    Add Projects
+                </div>
+                <div className={classes.box}>
+                    <div className={classes.info}>
+                        <div className={classes.left}>
+                            <InputField
+                            fullWidth={true}
+                            label='Project Title'
+                            name='projectTitle'
+                            required
+                            autoComplete='Project Title'
+                            variant='outlined'
+                            margin='dense'
+                            size='medium'
+                            inputProps={{ style: { color: 'black' } }}
+                            onChange={e => setProjectTitle(e.target.value)}
+                            />
+                            <InputField
+                            className={classes.input}
+                            fullWidth={true}
+                            label='Contributors'
+                            name='contributors'
+                            required
+                            autoComplete='contributors'
+                            variant='outlined'
+                            margin='dense'
+                            size='medium'
+                            inputProps={{ style: { color: 'black' } }}
+                            onChange={e => setContributors(e.target.value)}
+                            />
+                        </div>
+                        <div className={classes.right}>
+                            <div className={classes.category}>
+                                <InputField
+                                className={classes.input}
+                                fullWidth={true}
+                                label='Category'
+                                name='category'
+                                required
+                                autoComplete='Category'
+                                variant='outlined'
+                                margin='dense'
+                                size='medium'
+                                inputProps={{ style: { color: 'black' } }}
+                                onChange={e => setCategory(e.target.value)}
+                                />
+                            </div>
+                            <div className={classes.day}>
+                                <InputField
+                                className={classes.input}
+                                fullWidth={true}
+                                label='Start Date'
+                                name='startDate'
+                                required
+                                autoComplete='Start Date'
+                                variant='outlined'
+                                margin='dense'
+                                size='medium'
+                                inputProps={{ style: { color: 'black' } }}
+                                onChange={e => setStartDate(e.target.value)}
+                                />
+                                <InputField
+                                className={classes.input}
+                                fullWidth={true}
+                                label='End Date'
+                                name='endDate'
+                                required
+                                autoComplete='End Date'
+                                variant='outlined'
+                                margin='dense'
+                                size='medium'
+                                inputProps={{ style: { color: 'black' } }}
+                                onChange={e => setEndDate(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div className={classes.text}>
                     <InputField
-                        className={classes.input}
-                        fullWidth={true}
-                        label='Category'
-                        name='category'
-                        required
-                        autoComplete='Category'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setCategory(e.target.value)}
+                    className={classes.input}
+                    fullWidth={true}
+                    label='Description'
+                    name='description'
+                    required
+                    autoComplete='Description'
+                    variant='outlined'
+                    margin='dense'
+                    size='medium'
+                    type='string'
+                    inputProps={{ style: { color: 'black', height: '90px' } }}
+                    onChange={e => setDescription(e.target.value)}
                     />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        fullWidth={true}
-                        label='Contributors'
-                        name='contributors'
-                        required
-                        autoComplete='contributors'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setContributors(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        fullWidth={true}
-                        label='Start Date'
-                        name='startDate'
-                        required
-                        autoComplete='Start Date'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setStartDate(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        fullWidth={true}
-                        label='End Date'
-                        name='endDate'
-                        required
-                        autoComplete='End Date'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setEndDate(e.target.value)}
-                    />
-                </Grid>
-                <Grid sm={12} md={6}>˛
-                <InputField
-                        className={classes.input}
-                        fullWidth={true}
-                        label='Description'
-                        name='description'
-                        required
-                        autoComplete='Description'
-                        variant='outlined'
-                        margin='dense'
-                        size='medium'
-                        inputProps={{ style: { color: 'black' } }}
-                        onChange={e => setDescription(e.target.value)}
-                    />
-                </Grid>
-
-                <div className={classes.button}>
-                    <Button variant="contained" color="primary" onClick={handleOnSubmit}>
-                        Finish
-                </Button>
+                </div>
                 </div>
             </form>
-        </Grid>
+            <div className={classes.extra}>
+                <Button variant="contained" color="primary" onClick={handleOnSubmit}>
+                    Add another project
+                </Button>
+                <Button variant="contained" color="secondary" onClick={handleOnSubmit}>
+                    Finish
+                </Button>
 
-    </div>
-}
+            </div>
+        </div>
+    )
+};
 
 export default Onboarding2
