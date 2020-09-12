@@ -98,6 +98,13 @@ function userReducer(state=initialState, action){
                 userProjects: payload.projects
             }
 
+        case CURRENT_PROJECT_VIEW:
+            console.log('red store id', payload.projectId)
+            return {
+                ...state,
+                projectId: payload.projectId
+            }
+
         case STORE_CURRENT_PROJECT:
             return {
                 ...state,

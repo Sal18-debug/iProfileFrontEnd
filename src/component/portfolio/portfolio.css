@@ -1,0 +1,105 @@
+.project-card {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    margin: 30px;
+    padding: 20px;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.project-title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    
+    color: #000000;
+    
+}
+
+/* .level {
+    position: absolute;
+    width: 88px;
+    height: 29px;
+    left: 675px;
+    top: 236px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #000000;
+}
+
+.p {
+    position: absolute;
+    width: 463px;
+    height: 29px;
+    left: 488px;
+    top: 278px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #000000;
+}
+
+.influencer {
+    position: absolute;
+    width: 127px;
+    height: 29px;
+    left: 656px;
+    top: 353px;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    
+    color: #000000;
+}
+
+.awards {
+    position: absolute;
+    width: 93px;
+    height: 29px;
+    left: 675px;
+    top: 470px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #000000;
+}
+
+.projects {
+    position: absolute;
+    width: 220px;
+    height: 44px;
+    left: 612px;
+    top: 611px;
+    
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 44px;
+    
+    
+    color: #000000;
+} */
