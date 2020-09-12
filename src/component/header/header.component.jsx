@@ -39,6 +39,12 @@ export default function Header() {
                     Register
                 </Button>
             </Link>
+            <Link to='/onboarding1'>
+                <Button variant="contained" color="primary">
+                    onboarding: FOR TESTING PURPOSES
+                </Button>
+            </Link>
+
         </Toolbar>
       </AppBar>
     </div>

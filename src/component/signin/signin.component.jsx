@@ -56,7 +56,6 @@ const Signin = () => {
         }}).then(
             res => {
                 dispatch(storeEmail(email));
-                console.log(res);
             }
         )
     }  

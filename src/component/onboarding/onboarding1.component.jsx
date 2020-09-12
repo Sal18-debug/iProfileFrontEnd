@@ -40,9 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Onboarding1 = (props) => {
     const classes = useStyles();
-    const email = useSelector(state=>state)
-
-    console.log('em', email)
+    const email = useSelector(state=>state.email)
 
     const [firstName, setFirstName] = React.useState("")
     const [lastName, setLastName] = React.useState("")
@@ -72,7 +70,7 @@ const Onboarding1 = (props) => {
             recieveMessageFromRecruiters: recieveMessageFromRecruiters
     }
 
-        axios.post(`http://localhost:5000/user/email/a/profile`, body).then(
+        axios.post(`http://localhost:5000/user/email/${email}/profile`, body).then(
             (res) => {
                 console.log(res)
             }
