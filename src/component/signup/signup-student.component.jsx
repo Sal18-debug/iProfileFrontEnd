@@ -43,7 +43,7 @@ const SignupStudent = () => {
 
     const [firstName, setFirstName] = React.useState("");
     const [lastName, setLastName] = React.useState("");
-    const [email, setEmail] = React.useState("a");
+    const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
     const onSubmit = () => {

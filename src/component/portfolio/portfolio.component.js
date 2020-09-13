@@ -23,7 +23,9 @@ const Portfolio = (props) => {
                     console.log(res.data)
                 }
             }
-        )
+        ).catch(err =>{
+            console.log('err');
+        })
     }, [])
 
     const handleOnClick = (e, projectId) => {
