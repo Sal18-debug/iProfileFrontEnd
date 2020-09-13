@@ -1,13 +1,23 @@
-import React, { useEffect, dispatch } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
-import { currentProjectView, storeCurrentProject } from '../../redux/redux'
-import { Link } from 'react-router-dom'
+import React, { useEffect, dispatch } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { currentProjectView, storeCurrentProject } from '../../redux/redux';
+import { Link } from 'react-router-dom';
 import "./project.css"
 
-const Project = props => {
-    const dispatch = useDispatch()
 
+const useStyles = makeStyles((theme) => ({ 
+    main: {
+        width: '100%',
+        height: '80vh'
+    }
+}));
+
+
+const Project = props => {
+    const classes = useStyles();
+    const dispatch = useDispatch()
     const projectId = useSelector(state => state.projectId)
     const currentProject = useSelector(state => state.currentProject)
 
@@ -25,25 +35,28 @@ const Project = props => {
         )
     }, [])
 
-    return <div className="project">
+    return (
+        <div className="project">
+            <div className={classes.main}>
+                <div className="title-name">
+                    <h1 className="project-title">{currentProject.title}</h1>
+                    <h3>By {currentProject.contributors}</h3>
+                </div>
 
-        <div className="title-name">
-            <h1 className="project-title">{currentProject.title}</h1>
-            <h3>By {currentProject.contributors}</h3>
-        </div>
+                <div className="history-start-end">
+                    <a href="#">#History</a>
+                    <div>
+                        Jul 2020 - Aug 2020
+                        {/* <p>{currentProject.startDate} - {currentProject.endDate}</p> */}
+                    </div>
+                </div>
 
-        <div className="history-start-end">
-            <a href="#">#History</a>
-            <div>
-                Jul 2020 - Aug 2020
-                {/* <p>{currentProject.startDate} - {currentProject.endDate}</p> */}
+                <div className="description">
+                    <p className="desc-p">{currentProject.description}</p>
+                </div>
             </div>
         </div>
-
-        <div className="description">
-            <p className="desc-p">{currentProject.description}</p>
-        </div>
-    </div>
+    )
 }
 
 export default Project

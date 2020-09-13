@@ -41,6 +41,8 @@ const Home = (props) => {
                     console.log('something went wrong with all projects axios')
                     console.log(res.data)
                 }
+            }).catch(err =>{ 
+                console.log(err);
             })
         }
         , [])

@@ -167,7 +167,7 @@ const Signin = () => {
 
             <h2 ref={_subtitle => (subtitle = _subtitle)}>Congrat, You login successfully. Go to home page!</h2>
             <div style={ {display: 'flex', flexDirection: 'row', justifyContent: 'space-between'} }>
-                <Link to='/homepage'><Button variant="contained" color="primary">Home page</Button></Link>
+                <Link to='/home'><Button variant="contained" color="primary">Home page</Button></Link>
             </div>
             
         </Modal>

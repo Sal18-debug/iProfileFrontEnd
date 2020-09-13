@@ -59,7 +59,11 @@ export default function Header() {
                     Project
                 </Button>
             </Link>
-
+            <Link to='/home'>
+                <Button variant="contained" color="primary">
+                    Home
+                </Button>
+            </Link>
 
         </Toolbar>
       </AppBar>

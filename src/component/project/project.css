@@ -16,8 +16,13 @@
 .description {
     width: 1052.43px;
     height: 230.76px;
-    background: #FFFFFF;
+    background: rgb(221, 221, 226);
     border-radius: 16px;
+    border-color: #0c5df3;
+    border-style: solid;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .desc-p {
