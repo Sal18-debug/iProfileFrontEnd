@@ -57,6 +57,8 @@ const Signin = () => {
             _ => {
                 dispatch(storeEmail(email));
 
+                console.log("Login success!!!")
+
                 axios.get(`http://localhost:5000/user/email/${email}/profile`)
                 .then(
                     res => {
