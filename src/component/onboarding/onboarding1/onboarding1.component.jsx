@@ -4,7 +4,32 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import MainInfo from './maininfo.component';
+import {Link} from 'react-router-dom';
+import Modal from 'react-modal';
 
+const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)',
+      backgroundColor: '#FFFAFA',
+      borderRadius: '16px',
+      borderColor: 'blue',
+      borderStyle: 'solid',
+      justifyContent: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      boxShadow: '#524D4D',
+      backgroundColor: 'rgb(250, 250, 250)',
+    backgroundImage: 'linear-gradient(to right bottom, #FBDB89, #F48982)',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
+    }
+  };
 
 const InputField = withStyles({
     root: {
@@ -74,6 +99,19 @@ const Onboarding1 = (props) => {
     const [profileAvaliableToRecruiter, setProfileAvaliableToRecruiter] = React.useState(false)
     const [recieveMessageFromRecruiters, setRecieveMessageFromRecruiters] = React.useState(false)
 
+
+    /* Use for modal true */
+    var subtitle;
+    function afterOpenModalTrue() {
+    // references are now sync'd and can be accessed.
+        subtitle.style.color = 'blue';
+    }
+    
+    function closeModalTrue(){
+        setIsOpenTrue(false);
+    }
+    const [modalIsOpenTrue,setIsOpenTrue] = React.useState(false);
+    /****************************************************************/
     //NOTE: REMEMBER TO REPLACE EMAIL!!!!!!!!!!!!!
     const handleOnSubmit = (e) => {
         e.preventDefault()
@@ -92,7 +130,14 @@ const Onboarding1 = (props) => {
     }
 
         axios.post(`http://localhost:5000/user/email/${email}/profile`, body).then(
-            (res) => {
+            res => {
+                
+                // if user's profile is set up
+                if(res.data.success){
+                    setIsOpenTrue(true);
+                }else{ // user's profile isn't set up
+                    setIsOpenTrue(false);
+                }
                 console.log(res)
             }
         )
@@ -132,13 +177,29 @@ const Onboarding1 = (props) => {
                     </div>
                     
                     <div className={classes.button}>
-                        <Button variant="contained" color="primary" onClick={handleOnSubmit}>
-                            Next
-                        </Button>
+                        <Link to='/onboarding2'>
+                            <Button variant="contained" color="primary" onClick={handleOnSubmit}>
+                                Next
+                            </Button>
+                        </Link>
                     </div>
 
                 </div>
             </div>
+            <Modal
+            isOpen={modalIsOpenTrue}
+            //   onAfterOpen={afterOpenModalTrue}
+            //   onRequestClose={closeModalTrue}
+            style={customStyles}
+            contentLabel="Modal for succesfully login"
+            >
+
+                <h2 ref={_subtitle => (subtitle = _subtitle)}>Congrat, Your account setup successfully. Go to add projects!</h2>
+                <div style={ {display: 'flex', flexDirection: 'row', justifyContent: 'space-between'} }>
+                    <Link to='/onboarding2'><Button variant="contained" color="primary">onboarding2</Button></Link>
+                </div>
+                
+            </Modal>
         </div>
     ) 
 }
