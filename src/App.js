@@ -11,6 +11,7 @@ import Portfolio from './component/portfolio/portfolio.component'
 import store from './redux/redux';
 import { Provider } from 'react-redux';
 import './App.css';
+import Home from './pages/home/home'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route exact path='/onboarding2' component={Onboarding2} />
         <Route exact path='/portfolio' component={Portfolio} />
         <Route exact path="/project" component={Project}/>
+        <Route exact path="/home" component={Home}/>
         <Bottom />
       </div>
     </Provider>

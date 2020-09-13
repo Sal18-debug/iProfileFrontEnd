@@ -26,8 +26,7 @@ const Project = props => {
     }, [])
 
     return <div>
-        <Link to={`http://localhost:3000/project`} className="project-title">{currentProject.title}</Link>
-        {/* <h1 className="project-title">{currentProject.title}</h1> */}
+        <h1 className="project-title">{currentProject.title}</h1>
         <h3>By {currentProject.contributors}</h3>
         <p>{currentProject.startDate} - {currentProject.endDate}</p>
         <p>{currentProject.description}</p>

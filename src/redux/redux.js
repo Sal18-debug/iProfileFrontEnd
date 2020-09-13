@@ -7,6 +7,7 @@ const STORE_USER_PROFILE = 'STORE_USER_PROFILE'
 const STORE_USER_PROJECTS = 'STORE_USER_PROJECTS'
 const CURRENT_PROJECT_VIEW = 'CURRENT_PROJECT_VIEW'
 const STORE_CURRENT_PROJECT = 'STORE_CURRENT_PROJECT'
+const STORE_ALL_PROJECTS = 'STORE_ALL_PROJECTS'
 
 const initialState = {
     email: "d",
@@ -19,7 +20,8 @@ const initialState = {
     major: "",
     userProjects: [],
     projectId: "5f5d4063998705209f145e6a",
-    currentProject: ""
+    currentProject: "",
+    allProjects: []
 }
 
 export function storeEmail(email){
@@ -70,6 +72,15 @@ export function storeCurrentProject(currentProject){
     }
 }
 
+export function storeAllProjects(allProjects){
+    return {
+        type: STORE_ALL_PROJECTS,
+        payload: {
+            allProjects
+        }
+    }
+}
+
 function userReducer(state=initialState, action){
     console.log('reducer hit')
     const {payload} = action;
@@ -109,6 +120,12 @@ function userReducer(state=initialState, action){
             return {
                 ...state,
                 currentProject: payload.currentProject
+            }
+
+        case STORE_ALL_PROJECTS:
+            return {
+                ...state,
+                allProjects: payload.allProjects
             }
         
         default:
