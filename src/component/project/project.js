@@ -3,11 +3,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { currentProjectView, storeCurrentProject } from '../../redux/redux';
+import { TextField } from '@material-ui/core'
 import { Link } from 'react-router-dom';
 import "./project.css"
 
 
-const useStyles = makeStyles((theme) => ({ 
+const InputField = withStyles({
+    root: {
+        '& label.Mui-focused': {
+            color: 'tomato'
+        },
+        '& label': {
+            color: 'tan'
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'tan'
+            },
+            '&:hover fieldset': {
+                borderColor: 'tan'
+            },
+            '& .Mui-focused fieldset': {
+                borderColor: 'tan'
+            }
+        }
+    },
+})(TextField);
+
+const useStyles = makeStyles((theme) => ({
     main: {
         width: '100%',
         height: '80vh'
@@ -53,6 +76,23 @@ const Project = props => {
 
                 <div className="description">
                     <p className="desc-p">{currentProject.description}</p>
+                </div>
+
+                <h1>Comments</h1>
+                <div className="comment-div">
+                    <InputField
+                        fullWidth={true}
+                        label='Add a comment'
+                        name='commentField'
+                        required
+                        autoComplete='Add a comment'
+                        variant='outlined'
+                        margin='dense'
+                        size='medium'
+                        inputProps={{ style: { color: 'black' } }}
+                    // onChange={e => setProjectTitle(e.target.value)}
+                    />
+                    <button className="post-comment">Post</button>
                 </div>
             </div>
         </div>
