@@ -182,7 +182,7 @@ const Signin = () => {
 
             <h2 ref={_subtitle => (subtitle = _subtitle)}>Sorry! Email or Password is not correctly, or you need update your profile.</h2>
             <div style={ {display: 'flex', flexDirection: 'row', justifyContent: 'space-between'} }>
-                <Button onClick={closeModal} variant="contained" color="secondary">close</Button>
+                <Button onClick={closeModal} variant="contained" color="secondary" style={{height: '40px', marginTop: '15px'}}>close</Button>
                 <Link to='/register'><Button variant="contained" color="primary">Register</Button></Link>
                 <Link to='/onboarding1'><Button variant="contained" color="primary">Profile</Button></Link>
             </div>
