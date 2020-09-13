@@ -2,8 +2,8 @@ import React, { useEffect, dispatch } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { currentProjectView, storeCurrentProject } from '../../redux/redux'
-import {Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom'
+import "./project.css"
 
 const Project = props => {
     const dispatch = useDispatch()
@@ -25,11 +25,24 @@ const Project = props => {
         )
     }, [])
 
-    return <div>
-        <h1 className="project-title">{currentProject.title}</h1>
-        <h3>By {currentProject.contributors}</h3>
-        <p>{currentProject.startDate} - {currentProject.endDate}</p>
-        <p>{currentProject.description}</p>
+    return <div className="project">
+
+        <div className="title-name">
+            <h1 className="project-title">{currentProject.title}</h1>
+            <h3>By {currentProject.contributors}</h3>
+        </div>
+
+        <div className="history-start-end">
+            <a href="#">#History</a>
+            <div>
+                Jul 2020 - Aug 2020
+                {/* <p>{currentProject.startDate} - {currentProject.endDate}</p> */}
+            </div>
+        </div>
+
+        <div className="description">
+            <p className="desc-p">{currentProject.description}</p>
+        </div>
     </div>
 }
 
